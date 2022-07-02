@@ -1,0 +1,278 @@
+/***** Generic Containers ******/
+
+.widthContainer {
+    flex-grow: 1;
+    max-width: 1280px;
+  }
+  
+  .paper {
+    align-self: center;
+    background-color: rgb(246, 247, 248);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .55rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+  }
+
+  .projectCard {
+    margin: 1rem;
+    touch-action: none;
+    user-select: none; 
+  }
+
+  .projectCard:hover {
+    cursor: pointer;
+  }
+
+  /***** General CSS Helpers *****/
+
+  .hidden * {
+    display: none;
+  }
+
+  body {
+    padding:0px; 
+    margin:0px; 
+    background:#fff; 
+    color:#5E5E5E; 
+    font:13px/18px "Neucha", sans-serif;
+  }
+  
+  div, p, ul, h2, h3, img {
+    padding:0px; 
+    margin:0px;
+  }
+  
+  ul {list-style-type:none;}
+  
+  /***** Header *****/
+  
+  .brand {
+    /* color: #85a0b3; */
+    color:#046598;
+    font-weight: bold;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 1px solid #ccd6dd;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+  }
+  
+  .header .widthContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    font-weight: 600;
+  }
+
+  .header.hidden {
+    display: none;
+  }
+  
+  #loginForm {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #loginForm input {
+    width: 12em;
+  }
+  
+  /***** Styling for each of the Main Pages *****/
+  
+  .mainPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mainPage.hidden {
+    display: none;
+  }
+  
+  .mainPage h1 {
+    font-size: 1.8em;
+    font-weight: 300;
+  }
+  
+  .mainPage .paper {
+    text-align: center;
+    width: 50%;
+  }
+  
+  /***** Main *****/
+  
+  #main {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    animation: fadein 1s;
+  }
+  
+  #main.hidden, #templatePost {
+    display: none;
+  }
+  
+  #main .widthContainer {
+    display: flex;
+  }
+  
+  /***** Individual System Call Display *****/
+
+  /*---- Main Container for A System Call ----*/
+  #mainContainer {
+    width: 70%; 
+    /* height: 100%; */
+    height: 550px;
+    position: relative; 
+    margin: 0 auto; 
+    padding: 25px 0 0;
+    display: flex;
+  }
+  /*---- Text Panel of Main Container ----*/
+  #textPanel {
+    width: 60%; 
+    /* height: 100%; */
+    height: 550px;
+    float:left; 
+    padding:12px 36px 0 0;
+  }
+  #textPanel h2 {
+    width: 100%; 
+    height:30px; 
+    /* height: 8%; */
+    background: #fff; 
+    color:#00111A; 
+    font: 30px/28px "Neucha", sans-serif;
+  }
+
+  #textPanel h2 span {
+    background:#fff; 
+    color:#046598;
+  }
+
+  #textPanel h3 {
+    width: 100%; 
+    height:30px; 
+    /* height: 30%; */
+    background: #fff; 
+    color:#00111A; 
+    font:28px/28px "Neucha", sans-serif;
+  }
+  
+  #textPanel h3 span {
+    background:#fff; 
+    color:#046598;
+  }
+
+  #textPanel p {
+    font: 16px "Neucha", sans-serif;
+    padding:7px 0 0;
+  }
+
+  #textPanel p span { 
+    background:#fff; 
+    color:#046598; 
+    font-weight:bold;
+  }
+
+  #systemCallManPage {
+    margin-top: 1em;
+    width: 100%; 
+    height: 360px;
+  }
+
+  /*---- System Call Side Panel ----*/
+  #sidePanel {
+    width: 30%; 
+    height: 550px;
+    float:left; 
+    border:1px solid #41403e;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 5px 255px;
+    border-bottom-right-radius: 225px 5px;
+    border-top-left-radius: 225px 5px;
+    border-top-right-radius: 5px 225px;
+    background:#F3F3F3; 
+    color:#1A1A1A; 
+    padding:0 0 28px;
+  }
+
+  #sidePanel h2 { 
+    width: 90%; 
+    height:35px; 
+    display:block; 
+    border:1px solid #DADADA; 
+    background:#fff; 
+    color:#00111A; 
+    font:24px/34px "Neucha", sans-serif;
+    margin:8px 8px 16px; 
+    background-size: 4px 3px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 23px;
+    outline: none;
+    padding: .55rem .55rem 1.55rem .55rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 25px 255px;
+    border-bottom-right-radius: 225px 25px;
+    border-top-left-radius: 255px 25px;
+    border-top-right-radius: 25px 225px;
+  }
+
+  #sidePanel h2 span {
+    color:#046598;
+  }
+
+  #sidePanel h3 {
+    width:90%; 
+    height:35px; 
+    display:block; 
+    border:1px solid #DADADA; 
+    background:#fff; color:#00111A; 
+    font:24px/34px "Neucha", sans-serif;
+    margin:6px 8px 0; 
+    padding:0 0 0 20px;
+  }
+  #sidePanel h3 span{background:#fff; color:#046598;}
+
+
+  

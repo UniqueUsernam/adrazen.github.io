@@ -1,7 +1,191 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>System Call Library</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <!-- <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script> -->
+
+    <!-- Include the Open Sans font -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"> -->
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/syscall.css">
+
+    <!-- <script type="module" src="js/main.js"></script> -->
+    <!-- Used for GoogleAuth -->
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+  </head>
+  <body>
+    <header id="login-header" class="header">
+      <div class="widthContainer">
+        <h3 class="brand">System Call Library</h3>
+        <form id="loginForm">
+          <div id="signin"></div>
+        </form>
+
+      </div>
+    </header>
+
+     <!-- Welcome screen for the user before the user is signed in -->
+    <main id="login-welcome" class="mainPage">
+      <div class="paper">
+        <h1>Welcome to the <strong class="brand">System Call Library</strong>!</h1>
+        <h2>Log in to begin using the site.</h2>
+      </div>
+    </main>
+
+    <!-- Header for the system call library where a user can search for a system call -->
+    <header id="search-header" class="header hidden">
+      <div class="widthContainer">
+        <!-- Dropdown menu for the site to select what page you want to view -->
+        <div id="mainDropdownMenu" class="dropdown">
+          <button class="dropdown-button">Dropdown</button>
+          <div id="dropdownMenu" class="dropdown-content">
+            <a href="#" id="mySystemCalls" class="dropdown-menu-item">My System Calls</a>
+            <a href="#" id="learningTutorials" class="dropdown-menu-item">Learning Tutorials</a>
+            <a href="#" id="myProjects" class="dropdown-menu-item">My Projects</a>
+          </div>
+        </div>
+
+        <!-- Search bar for searching for a specific system call or using explore mode -->
+        <form id="searchForm">
+          <input name="syscall_name" id="search-input" placeholder="">
+          <button type="submit" name="search">Search</button>
+          <button type="button" name="exploreMode" class="secondary">Explore Mode</button>
+        </form>
+      </div>
+    </header>
+
+    <main id="syscall-welcome" class="mainPage hidden">
+      <div class="paper">
+        <h1>Welcome to the <strong class="brand">System Call Library</strong>!</h1>
+        <h2>Search for a specific system call in the search bar 
+          <br> or use Explore Mode to discover a new system call.</h2>
+      </div>
+    </main>
+
+    <!-- Page with an overview of a system call -->
+    <main id="syscall-page" class="mainPage hidden">
+        <div id="mainContainer">
+          <div id="textPanel">
+            <h2 id="systemCallTitle">Learn about <span id="systemCallName">why</span></h2>
+            <p id="systemCallOverview"></p>
+            <iframe src="" title="Man Page" id="systemCallManPage"></iframe>
+          </div>
+          <div id="sidePanel">
+            <h2>My <span>notepad</span></h2>
+            <figure id="notepad">
+              <pre><code class=language-html spellcheck=false contenteditable>Start typing here...</code></pre>
+            </figure>          
+          </div>
+        </div>
+    </main>
+
+    <!-- Page with a user's pinned system calls that allows them to customize what system calls they are interested in -->
+    <main id="my-system-calls" class="mainPage hidden">
+      <div id="mainContainer">
+        <div id="textPanel">
+          <h2><span id="nameTag"></span>'s pinned system calls</h2>
+          <div id="followContainer"></div>
+        </div>
+        <div id="sidePanel">
+          <h2>My <span>notepad</span></h2>
+          <figure id="notepad">
+            <pre><code class=language-html spellcheck=false contenteditable>Start typing here...</code></pre>
+          </figure>          
+        </div>
+      </div>
+    </main>
+
+    <!-- Page with all of the available tutorials that a user can access -->
+    <main id="tutorials-page" class="mainPage hidden">
+      <div id="mainContainer">
+        <div id="tutorialPage">
+          <ul>
+            <li>
+              <h2>Operating Systems Crash Course </h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/26QPDBe-NB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you the basics of operating systems. </p>
+            </li>
+            <li>
+              <h2>Socket Programming in C</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/LtXEMwSG5-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you about how to program with sockets.</p>
+            </li>
+            <li>
+              <h2>Fork() and Exec() System Calls</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/IFEFVXvjiHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you about the fork() and exec() system calls and how they should be used. </p>
+            </li>
+            <li>
+              <h2>File Reading System Calls</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/CHs9WwvEKdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you about the read(), write(), open(), and close() system calls which are necessary for reading and writing.</p>
+            </li>
+            <li>
+              <h2>All About System Calls</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/lhToWeuWWfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches about the high level of why system calls exist.</p>
+            </li>
+
+            <li>
+              <h2>Introduction to Threads</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/d9s_d28yJq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you about the basics and overview of threads.</p>
+            </li>
+
+            <li>
+              <h2>The Fork() System Call</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/cex9XrZCU14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video teaches you all about the fork() system call.</p>
+            </li>
+
+            <li>
+              <h2>The Open() System Call</h2>
+              <iframe width="200" height="140" src="https://www.youtube.com/embed/WxNSJAbQ8Ik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>This video takes a deep dive into the open() system call.</p>
+            </li>
+            
+          </ul>
+          <br class="clear" />
+        </div>
+      </div>
+    </main>
+
+    <!-- Page with a user's learning goals and learning plan -->
+    <main id="my-projects" class="mainPage hidden">
+      <div id="mainContainer">
+        <section id="sidebar">
+          <div class="textPanel">
+            <div>
+              <h2 class="brand">Add New Project</h2>
+              <form id="newProjectForm">
+                <label for="newProjectTitle">Project title:</label>
+                <input type="text" name="title" id="newProjectTitle" required>
+                <label for="newProjectDescription">Project description:</label>
+                <textarea name="description" id="newProjectDescription"></textarea>
+                <label for="systemCalls">System calls needed:</label>
+                <input type="text" name="syscalls" id="systemCalls">
+                <button type="submit" id="addNewProject">Add</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div id="board">
+        </div>
+      </div>
+
+
+      <!-- Template elements to be cloned in JavaScript -->
+    <div class="template column paper projectCard">
+      <h3 class="title">[TEMPLATE]</h3>
+      <p class="description">You should never see this text.</p>
+      <div class="systemCalls">
+      </div>
+    </div>
+    </main>
+  </body>
 </html>
